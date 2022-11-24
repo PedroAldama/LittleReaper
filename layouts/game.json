@@ -7898,7 +7898,7 @@
 			],
 			"sid": 313337787056426,
 			"effectTypes": [],
-			"isInitiallyVisible": true,
+			"isInitiallyVisible": false,
 			"isInitiallyInteractive": true,
 			"color": [
 				1,

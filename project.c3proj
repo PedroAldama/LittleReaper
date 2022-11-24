@@ -193,7 +193,8 @@
 			"PAUSa",
 			"YES",
 			"NO",
-			"shure"
+			"shure",
+			"title"
 		],
 		"subfolders": []
 	},
@@ -209,14 +210,15 @@
 		"items": [
 			"game",
 			"objects",
-			"home",
-			"credits"
+			"credits",
+			"home"
 		],
 		"subfolders": []
 	},
 	"eventSheets": {
 		"items": [
 			"main",
+			"credits",
 			"home"
 		],
 		"subfolders": []
