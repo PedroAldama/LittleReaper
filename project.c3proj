@@ -194,7 +194,8 @@
 			"YES",
 			"NO",
 			"shure",
-			"title"
+			"title",
+			"reset"
 		],
 		"subfolders": []
 	},

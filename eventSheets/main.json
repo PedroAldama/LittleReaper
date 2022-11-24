@@ -52,6 +52,24 @@
 						"instance-variable": "startY",
 						"value": "Self.Y"
 					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "reset",
+					"sid": 405644729386046,
+					"parameters": {
+						"instance-variable": "startX",
+						"value": "Self.X"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "reset",
+					"sid": 613653424964461,
+					"parameters": {
+						"instance-variable": "startY",
+						"value": "Self.Y"
+					}
 				}
 			],
 			"sid": 291208218268513
@@ -1738,9 +1756,46 @@
 					"parameters": {
 						"y": "Self.startY+ViewportTop(Self.LayerName)"
 					}
+				},
+				{
+					"id": "set-x",
+					"objectClass": "reset",
+					"sid": 484459603923386,
+					"parameters": {
+						"x": "Self.startX+ViewportLeft(Self.LayerName)"
+					}
+				},
+				{
+					"id": "set-y",
+					"objectClass": "reset",
+					"sid": 770258869673316,
+					"parameters": {
+						"y": "Self.startY+ViewportTop(Self.LayerName)"
+					}
 				}
 			],
 			"sid": 628335895063651
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 610552730714329,
+					"parameters": {
+						"object": "reset"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "restart-layout",
+					"objectClass": "System",
+					"sid": 855343662563857
+				}
+			],
+			"sid": 674434960599758
 		}
 	],
 	"sid": 515443655451562
