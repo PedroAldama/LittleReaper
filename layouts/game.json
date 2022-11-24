@@ -7945,12 +7945,44 @@
 					},
 					"behaviors": {},
 					"world": {
-						"x": 1152,
-						"y": 128,
+						"x": 1216,
+						"y": 96,
 						"width": 96,
 						"height": 64,
 						"originX": 0.5141242937853108,
 						"originY": 0.6495726495726496,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "reset",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 160,
+					"instanceVariables": {
+						"startX": 0,
+						"startY": 0
+					},
+					"behaviors": {},
+					"world": {
+						"x": 1088,
+						"y": 82,
+						"width": 96,
+						"height": 64,
+						"originX": 0.3546511627906977,
+						"originY": 0.44525547445255476,
 						"color": [
 							1,
 							1,
