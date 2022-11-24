@@ -1,0 +1,1747 @@
+{
+	"name": "main",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "mouseHover",
+			"type": "string",
+			"initialValue": "",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 417422133469839
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 175250741828169
+				}
+			],
+			"actions": [
+				{
+					"id": "pin-to-object-imagepoint",
+					"objectClass": "player_scythe",
+					"sid": 915122170103272,
+					"behaviorType": "Pin",
+					"parameters": {
+						"pin-to": "player",
+						"image-point": "0",
+						"angle": true,
+						"width-type": "no",
+						"height-type": "no",
+						"z": false
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "pause",
+					"sid": 489905559974670,
+					"parameters": {
+						"instance-variable": "startX",
+						"value": "Self.X"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "pause",
+					"sid": 379559922628337,
+					"parameters": {
+						"instance-variable": "startY",
+						"value": "Self.Y"
+					}
+				}
+			],
+			"sid": 291208218268513
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "player",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-tap",
+							"objectClass": "Touch",
+							"sid": 987007242762600
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "player_scythe",
+							"sid": 991741325935150,
+							"parameters": {
+								"instance-variable": "onUse"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "unpin",
+							"objectClass": "player_scythe",
+							"sid": 182569655402879,
+							"behaviorType": "Pin"
+						},
+						{
+							"id": "move-to-position",
+							"objectClass": "player_scythe",
+							"sid": 755425455805698,
+							"behaviorType": "MoveTo",
+							"parameters": {
+								"x": "Mouse.X",
+								"y": "Mouse.Y",
+								"mode": "direct"
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "player_scythe",
+							"sid": 458850981314641,
+							"parameters": {
+								"animation": "\"misc\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "player_scythe",
+							"sid": 841862352059756,
+							"parameters": {
+								"instance-variable": "onUse",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 744315293483685
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-arrived",
+							"objectClass": "player_scythe",
+							"sid": 973816695530687,
+							"behaviorType": "MoveTo"
+						}
+					],
+					"actions": [],
+					"sid": 111095977285698,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "player_scythe",
+									"sid": 159849413056281,
+									"parameters": {
+										"object": "player"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "pin-to-object-imagepoint",
+									"objectClass": "player_scythe",
+									"sid": 922749027644194,
+									"behaviorType": "Pin",
+									"parameters": {
+										"pin-to": "player",
+										"image-point": "0",
+										"angle": true,
+										"width-type": "no",
+										"height-type": "no",
+										"z": false
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "player_scythe",
+									"sid": 174596222196323,
+									"parameters": {
+										"animation": "\"idle\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 243835642574355
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "player_scythe",
+									"sid": 178638161779336,
+									"parameters": {
+										"object": "player"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "move-to-object",
+									"objectClass": "player_scythe",
+									"sid": 716483525146591,
+									"behaviorType": "MoveTo",
+									"parameters": {
+										"object": "player",
+										"image-point": "0",
+										"mode": "direct"
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "player_scythe",
+									"sid": 909613806053108,
+									"parameters": {
+										"instance-variable": "onUse",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 109073725946053
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 373950496429261
+						}
+					],
+					"actions": [
+						{
+							"id": "set-x",
+							"objectClass": "dadGhost",
+							"sid": 479498737419327,
+							"parameters": {
+								"x": "player.X - 70"
+							}
+						},
+						{
+							"id": "set-x",
+							"objectClass": "cloudDust",
+							"sid": 256214909875685,
+							"parameters": {
+								"x": "player.X - 70"
+							}
+						},
+						{
+							"id": "set-x",
+							"objectClass": "momGhost",
+							"sid": 993201695547262,
+							"parameters": {
+								"x": "player.X + 60"
+							}
+						},
+						{
+							"id": "set-x",
+							"objectClass": "cloudDust2",
+							"sid": 759116834480004,
+							"parameters": {
+								"x": "player.X + 60"
+							}
+						},
+						{
+							"id": "set-x",
+							"objectClass": "bikeDust",
+							"sid": 342744093765637,
+							"parameters": {
+								"x": "player.X - 40"
+							}
+						}
+					],
+					"sid": 722491132936358
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-animation-playing",
+							"objectClass": "player",
+							"sid": 601108722510034,
+							"parameters": {
+								"animation": "\"idle\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "simulate-control",
+							"objectClass": "player",
+							"sid": 459515936519986,
+							"behaviorType": "Platform",
+							"parameters": {
+								"control": "right"
+							}
+						}
+					],
+					"sid": 383582210986049
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "player",
+							"sid": 119781074698877,
+							"parameters": {
+								"object": "mirror_live"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "spawn-another-object",
+							"objectClass": "mirror_live",
+							"sid": 971841780817693,
+							"parameters": {
+								"object": "poofMisc",
+								"layer": "0",
+								"image-point": "0",
+								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 646215109598145,
+							"parameters": {
+								"seconds": ".1"
+							}
+						},
+						{
+							"id": "spawn-another-object",
+							"objectClass": "mirror_mirror",
+							"sid": 514840325171819,
+							"parameters": {
+								"object": "poofMisc",
+								"layer": "0",
+								"image-point": "0",
+								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "set-position-to-another-object",
+							"objectClass": "player",
+							"sid": 808617666451250,
+							"parameters": {
+								"object": "mirror_mirror",
+								"image-point-optional": "0"
+							}
+						}
+					],
+					"sid": 484696410389259
+				}
+			],
+			"sid": 797815467779092
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "objects",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "blockGeneral",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-tap-object",
+									"objectClass": "Touch",
+									"sid": 810907932401014,
+									"parameters": {
+										"object": "tileObject"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 579392396868134,
+									"parameters": {
+										"variable": "mouseHover",
+										"value": "\"block\""
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "tileObject",
+									"sid": 368787399575033,
+									"parameters": {
+										"animation": "\"selected\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 479598094065204
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 639370502720318,
+									"parameters": {
+										"object": "tileObject"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "tileObject",
+									"sid": 311322160857737,
+									"parameters": {
+										"animation": "\"idle\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 113760189765117
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-animation-finished",
+									"objectClass": "poofMisc",
+									"sid": 176660606797049,
+									"parameters": {
+										"animation": "\"misc\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "poofMisc",
+									"sid": 622422584267996
+								}
+							],
+							"sid": 791098496313610
+						}
+					],
+					"sid": 881992697407215
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "skull",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-tap-object",
+									"objectClass": "Touch",
+									"sid": 219472575698162,
+									"parameters": {
+										"object": "skullBat"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 835480332625905,
+									"parameters": {
+										"variable": "mouseHover",
+										"value": "\"skullBat\""
+									}
+								}
+							],
+							"sid": 717283874135119
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-animation-playing",
+									"objectClass": "skullBat",
+									"sid": 696524927309880,
+									"parameters": {
+										"animation": "\"idle\""
+									}
+								},
+								{
+									"id": "compare-y",
+									"objectClass": "skullBat",
+									"sid": 299789052168158,
+									"parameters": {
+										"comparison": 4,
+										"y-co-ordinate": "450"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "simulate-control",
+									"objectClass": "skullBat",
+									"sid": 204397541908813,
+									"behaviorType": "8Direction",
+									"parameters": {
+										"control": "up"
+									}
+								}
+							],
+							"sid": 994371526221375
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-tap-object",
+									"objectClass": "Touch",
+									"sid": 654209645862890,
+									"parameters": {
+										"object": "tileObject"
+									}
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 364071569238457,
+									"parameters": {
+										"variable": "mouseHover",
+										"comparison": 0,
+										"value": "\"block\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "spawn-another-object",
+									"objectClass": "tileObject",
+									"sid": 219888549592642,
+									"parameters": {
+										"object": "poofMisc",
+										"layer": "\"tilemapObjects\"",
+										"image-point": "0",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "poofMisc",
+									"sid": 286672432011902,
+									"parameters": {
+										"object": "skullBat",
+										"layer": "\"tiles\"",
+										"image-point": "0",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "destroy",
+									"objectClass": "tileObject",
+									"sid": 348047937963654
+								}
+							],
+							"sid": 517382544717546
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-tap-object",
+									"objectClass": "Touch",
+									"sid": 749025781637256,
+									"parameters": {
+										"object": "skullBat"
+									}
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 787850572398351,
+									"parameters": {
+										"variable": "mouseHover",
+										"comparison": 0,
+										"value": "\"skullBat\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "spawn-another-object",
+									"objectClass": "skullBat",
+									"sid": 269239680518890,
+									"parameters": {
+										"object": "poofMisc",
+										"layer": "\"tilemapObjects\"",
+										"image-point": "0",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "poofMisc",
+									"sid": 240398690884465,
+									"parameters": {
+										"object": "tileObject",
+										"layer": "\"tiles\"",
+										"image-point": "0",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "destroy",
+									"objectClass": "skullBat",
+									"sid": 391874377898205
+								}
+							],
+							"sid": 547189691893472
+						}
+					],
+					"sid": 332840321733968
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "trash",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-tap-object",
+									"objectClass": "Touch",
+									"sid": 543618426374065,
+									"parameters": {
+										"object": "trash"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 725252070110832,
+									"parameters": {
+										"variable": "mouseHover",
+										"value": "\"trash\""
+									}
+								}
+							],
+							"sid": 922671540850102,
+							"isOrBlock": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-tap-object",
+									"objectClass": "Touch",
+									"sid": 688903381275485,
+									"parameters": {
+										"object": "trash_live"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 395172546918151,
+									"parameters": {
+										"variable": "mouseHover",
+										"value": "\"trashLive\""
+									}
+								}
+							],
+							"sid": 368793558317675,
+							"isOrBlock": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-tap-object",
+									"objectClass": "Touch",
+									"sid": 212298231779494,
+									"parameters": {
+										"object": "trash"
+									}
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 518479974171846,
+									"parameters": {
+										"variable": "mouseHover",
+										"comparison": 0,
+										"value": "\"trash\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "spawn-another-object",
+									"objectClass": "trash",
+									"sid": 107762653793436,
+									"parameters": {
+										"object": "poofMisc",
+										"layer": "\"tilemapObjects\"",
+										"image-point": "0",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "poofMisc",
+									"sid": 238995075355388,
+									"parameters": {
+										"object": "trash_live",
+										"layer": "\"tiles\"",
+										"image-point": "0",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "destroy",
+									"objectClass": "trash",
+									"sid": 547899230090856
+								}
+							],
+							"sid": 807267605821265
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-tap-object",
+									"objectClass": "Touch",
+									"sid": 474525558178131,
+									"parameters": {
+										"object": "trash_live"
+									}
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 943874746969075,
+									"parameters": {
+										"variable": "mouseHover",
+										"comparison": 0,
+										"value": "\"trashLive\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "spawn-another-object",
+									"objectClass": "trash_live",
+									"sid": 101721904362272,
+									"parameters": {
+										"object": "poofMisc",
+										"layer": "\"tilemapObjects\"",
+										"image-point": "0",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "poofMisc",
+									"sid": 795110364860659,
+									"parameters": {
+										"object": "trash",
+										"layer": "\"tiles\"",
+										"image-point": "0",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "destroy",
+									"objectClass": "trash_live",
+									"sid": 323391981038126
+								}
+							],
+							"sid": 206660548381825
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-animation-playing",
+									"objectClass": "trash_live",
+									"sid": 618125403318040,
+									"parameters": {
+										"animation": "\"idle\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 849347737836712,
+									"parameters": {
+										"seconds": "1"
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "trash_live",
+									"sid": 446839587894822,
+									"parameters": {
+										"object": "trash_misc",
+										"layer": "\"tilemapObjects\"",
+										"image-point": "0",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "destroy",
+									"objectClass": "trash_live",
+									"sid": 603809988023803
+								}
+							],
+							"sid": 515245734375857
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-animation-finished",
+									"objectClass": "trash_misc",
+									"sid": 775256287566320,
+									"parameters": {
+										"animation": "\"idle\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "trash_misc",
+									"sid": 398803130099720
+								}
+							],
+							"sid": 463927776863429
+						},
+						{
+							"eventType": "comment",
+							"text": "Misc event"
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "crate",
+									"sid": 776366797467523,
+									"parameters": {
+										"object": "trash_misc"
+									}
+								},
+								{
+									"id": "compare-animation-frame",
+									"objectClass": "trash_misc",
+									"sid": 527553977214881,
+									"parameters": {
+										"comparison": 0,
+										"number": "5"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "spawn-another-object",
+									"objectClass": "crate",
+									"sid": 117014081366027,
+									"parameters": {
+										"object": "crate_misc",
+										"layer": "\"player\"",
+										"image-point": "0",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "destroy",
+									"objectClass": "crate",
+									"sid": 685946422439329
+								}
+							],
+							"sid": 357965910509206
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "crate_live",
+									"sid": 207088578337195,
+									"parameters": {
+										"object": "trash_misc"
+									}
+								},
+								{
+									"id": "compare-animation-frame",
+									"objectClass": "trash_misc",
+									"sid": 781012463524886,
+									"parameters": {
+										"comparison": 0,
+										"number": "5"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "spawn-another-object",
+									"objectClass": "crate",
+									"sid": 332274645050234,
+									"parameters": {
+										"object": "crate_misc",
+										"layer": "\"player\"",
+										"image-point": "0",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "destroy",
+									"objectClass": "crate_live",
+									"sid": 433958756455050
+								}
+							],
+							"sid": 756747314961441
+						}
+					],
+					"sid": 781469759606619
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "crate",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-tap-object",
+									"objectClass": "Touch",
+									"sid": 896858337460943,
+									"parameters": {
+										"object": "crate"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 937552128800216,
+									"parameters": {
+										"variable": "mouseHover",
+										"value": "\"crate\""
+									}
+								}
+							],
+							"sid": 633407932742205,
+							"isOrBlock": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-tap-object",
+									"objectClass": "Touch",
+									"sid": 770473264127909,
+									"parameters": {
+										"object": "crate_live"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 485751555185654,
+									"parameters": {
+										"variable": "mouseHover",
+										"value": "\"crateLive\""
+									}
+								}
+							],
+							"sid": 152602694492690,
+							"isOrBlock": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-tap-object",
+									"objectClass": "Touch",
+									"sid": 264002017445436,
+									"parameters": {
+										"object": "crate"
+									}
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 367134076378437,
+									"parameters": {
+										"variable": "mouseHover",
+										"comparison": 0,
+										"value": "\"crate\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "spawn-another-object",
+									"objectClass": "crate",
+									"sid": 429611980102317,
+									"parameters": {
+										"object": "poofMisc",
+										"layer": "\"tilemapObjects\"",
+										"image-point": "0",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "poofMisc",
+									"sid": 904402620281229,
+									"parameters": {
+										"object": "crate_live",
+										"layer": "\"tiles\"",
+										"image-point": "0",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "destroy",
+									"objectClass": "crate",
+									"sid": 293385278691438
+								}
+							],
+							"sid": 237959046336670
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-tap-object",
+									"objectClass": "Touch",
+									"sid": 386002865872253,
+									"parameters": {
+										"object": "crate_live"
+									}
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 580600036561651,
+									"parameters": {
+										"variable": "mouseHover",
+										"comparison": 0,
+										"value": "\"crateLive\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "spawn-another-object",
+									"objectClass": "crate_live",
+									"sid": 827803874258336,
+									"parameters": {
+										"object": "poofMisc",
+										"layer": "\"tilemapObjects\"",
+										"image-point": "0",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "poofMisc",
+									"sid": 743849356074836,
+									"parameters": {
+										"object": "crate",
+										"layer": "\"tiles\"",
+										"image-point": "0",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "destroy",
+									"objectClass": "crate_live",
+									"sid": 376171531330669
+								}
+							],
+							"sid": 113364622893582
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-animation-finished",
+									"objectClass": "crate_misc",
+									"sid": 234651455727722,
+									"parameters": {
+										"animation": "\"Animation 1\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "crate_misc",
+									"sid": 405525944324845
+								}
+							],
+							"sid": 416669303771287
+						}
+					],
+					"sid": 966449356747526
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "mirror",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-start-of-layout",
+									"objectClass": "System",
+									"sid": 686206566672451
+								}
+							],
+							"actions": [
+								{
+									"id": "set-mirrored",
+									"objectClass": "mirror_mirror_sleep",
+									"sid": 453157860836306,
+									"parameters": {
+										"state": "mirrored"
+									}
+								}
+							],
+							"sid": 316805702212609
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-tap-object",
+									"objectClass": "Touch",
+									"sid": 674547522948116,
+									"parameters": {
+										"object": "mirror"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 350982695579660,
+									"parameters": {
+										"variable": "mouseHover",
+										"value": "\"mirror\""
+									}
+								}
+							],
+							"sid": 722647037342269,
+							"isOrBlock": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-tap-object",
+									"objectClass": "Touch",
+									"sid": 115829803078255,
+									"parameters": {
+										"object": "mirror_live"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 798865131737685,
+									"parameters": {
+										"variable": "mouseHover",
+										"value": "\"mirrorLive\""
+									}
+								}
+							],
+							"sid": 659017574164849,
+							"isOrBlock": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-tap-object",
+									"objectClass": "Touch",
+									"sid": 495812817607754,
+									"parameters": {
+										"object": "mirror"
+									}
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 452860632781637,
+									"parameters": {
+										"variable": "mouseHover",
+										"comparison": 0,
+										"value": "\"mirror\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "spawn-another-object",
+									"objectClass": "mirror",
+									"sid": 347866895923343,
+									"parameters": {
+										"object": "poofMisc",
+										"layer": "\"tilemapObjects\"",
+										"image-point": "0",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "poofMisc",
+									"sid": 326395560636934,
+									"parameters": {
+										"object": "mirror_live",
+										"layer": "\"tiles\"",
+										"image-point": "0",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "mirror_mirror_sleep",
+									"sid": 589099776038360,
+									"parameters": {
+										"object": "poofMisc",
+										"layer": "\"tilemapObjects\"",
+										"image-point": "0",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "poofMisc",
+									"sid": 566718955952941,
+									"parameters": {
+										"object": "mirror_mirror",
+										"layer": "\"tiles\"",
+										"image-point": "0",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "set-mirrored",
+									"objectClass": "mirror_mirror",
+									"sid": 891878713534420,
+									"parameters": {
+										"state": "mirrored"
+									}
+								},
+								{
+									"id": "destroy",
+									"objectClass": "mirror",
+									"sid": 605401332255918
+								},
+								{
+									"id": "destroy",
+									"objectClass": "mirror_mirror_sleep",
+									"sid": 207390694546996
+								}
+							],
+							"sid": 668555551977938
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-tap-object",
+									"objectClass": "Touch",
+									"sid": 663734014904607,
+									"parameters": {
+										"object": "mirror_live"
+									}
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 984389917883969,
+									"parameters": {
+										"variable": "mouseHover",
+										"comparison": 0,
+										"value": "\"mirrorLive\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "spawn-another-object",
+									"objectClass": "mirror_live",
+									"sid": 242500914489309,
+									"parameters": {
+										"object": "poofMisc",
+										"layer": "\"tilemapObjects\"",
+										"image-point": "0",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "poofMisc",
+									"sid": 710481865126364,
+									"parameters": {
+										"object": "mirror",
+										"layer": "\"tiles\"",
+										"image-point": "0",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "destroy",
+									"objectClass": "mirror_live",
+									"sid": 391946538619970
+								}
+							],
+							"sid": 612312344785512
+						}
+					],
+					"sid": 918238456175085
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "letras",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "skullBat",
+									"sid": 673148895414480,
+									"parameters": {
+										"object": "letras"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "move-to-object",
+									"objectClass": "letras",
+									"sid": 176704274949329,
+									"behaviorType": "MoveTo",
+									"parameters": {
+										"object": "frase",
+										"image-point": "0",
+										"mode": "direct"
+									}
+								}
+							],
+							"sid": 294066592260424
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-arrived",
+									"objectClass": "letras",
+									"sid": 120882179512384,
+									"behaviorType": "MoveTo"
+								}
+							],
+							"actions": [
+								{
+									"id": "set-position-to-another-object",
+									"objectClass": "letras",
+									"sid": 511623258734703,
+									"parameters": {
+										"object": "generarLetra",
+										"image-point-optional": "0"
+									}
+								},
+								{
+									"id": "set-enabled",
+									"objectClass": "generarLetra",
+									"sid": 600971750278701,
+									"behaviorType": "Anchor",
+									"parameters": {
+										"state": "disabled"
+									}
+								},
+								{
+									"id": "set-position",
+									"objectClass": "generarLetra",
+									"sid": 713438765815535,
+									"parameters": {
+										"x": "generarLetra.X + 70",
+										"y": "generarLetra.Y"
+									}
+								},
+								{
+									"id": "set-enabled",
+									"objectClass": "generarLetra",
+									"sid": 278207978061446,
+									"behaviorType": "Anchor",
+									"parameters": {
+										"state": "enabled"
+									}
+								},
+								{
+									"id": "stop-animation",
+									"objectClass": "letras",
+									"sid": 235348263357186
+								},
+								{
+									"id": "set-animation-frame",
+									"objectClass": "letras",
+									"sid": 750041828175990,
+									"parameters": {
+										"frame-number": "letras.valor"
+									}
+								},
+								{
+									"id": "move-to-layer",
+									"objectClass": "letras",
+									"sid": 712930067475405,
+									"parameters": {
+										"layer": "\"letras\""
+									}
+								},
+								{
+									"id": "move-to-top",
+									"objectClass": "letras",
+									"sid": 861675378434832
+								},
+								{
+									"id": "set-collisions-enabled",
+									"objectClass": "letras",
+									"sid": 297610817113240,
+									"parameters": {
+										"collisions": "disabled"
+									}
+								}
+							],
+							"sid": 268838694004977
+						}
+					],
+					"sid": 796403660187925
+				}
+			],
+			"sid": 952605504775111
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Pause",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-tap-object",
+							"objectClass": "Touch",
+							"sid": 199540261241216,
+							"parameters": {
+								"object": "pause"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-time-scale",
+							"objectClass": "System",
+							"sid": 483042699223899,
+							"parameters": {
+								"time-scale": "0"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "pause",
+							"sid": 965086031144947,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 925911923692995,
+							"parameters": {
+								"layer": "\"Pause Menu\"",
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 635174840798786
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-tap-object",
+							"objectClass": "Touch",
+							"sid": 736867140304465,
+							"parameters": {
+								"object": "Exit"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "Exit",
+							"sid": 589124938565143,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "continue",
+							"sid": 247085387219191,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "PAUSa",
+							"sid": 772506393275526,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "shure",
+							"sid": 601237934051956,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "YES",
+							"sid": 742083551860173,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "NO",
+							"sid": 661512470709923,
+							"parameters": {
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 799861090262023
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-tap-object",
+							"objectClass": "Touch",
+							"sid": 682432491622539,
+							"parameters": {
+								"object": "NO"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "Exit",
+							"sid": 485957211218089,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "continue",
+							"sid": 998286220495688,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "PAUSa",
+							"sid": 796539450527887,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "shure",
+							"sid": 459501802408573,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "YES",
+							"sid": 301284189999164,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "NO",
+							"sid": 404991810835486,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 776496287385149
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-tap-object",
+							"objectClass": "Touch",
+							"sid": 389995776150023,
+							"parameters": {
+								"object": "YES"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "close",
+							"objectClass": "Browser",
+							"sid": 838620755120437
+						}
+					],
+					"sid": 182132955835413
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-tap-object",
+							"objectClass": "Touch",
+							"sid": 904180806153984,
+							"parameters": {
+								"object": "continue"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 540620948941895,
+							"parameters": {
+								"layer": "\"Pause Menu\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-time-scale",
+							"objectClass": "System",
+							"sid": 782047140854724,
+							"parameters": {
+								"time-scale": "1.0"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "pause",
+							"sid": 602477793597110,
+							"parameters": {
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 544906975564556
+				}
+			],
+			"sid": 684382557308959
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 823262459500424
+				}
+			],
+			"actions": [
+				{
+					"id": "set-x",
+					"objectClass": "pause",
+					"sid": 578289410802297,
+					"parameters": {
+						"x": "Self.startX+ViewportLeft(Self.LayerName)"
+					}
+				},
+				{
+					"id": "set-y",
+					"objectClass": "pause",
+					"sid": 902559414820528,
+					"parameters": {
+						"y": "Self.startY+ViewportTop(Self.LayerName)"
+					}
+				}
+			],
+			"sid": 628335895063651
+		}
+	],
+	"sid": 515443655451562
+}

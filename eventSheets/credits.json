@@ -1,0 +1,92 @@
+{
+	"name": "credits",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 453168191888572
+				}
+			],
+			"actions": [
+				{
+					"id": "move-to-object",
+					"objectClass": "cr",
+					"sid": 952161291599790,
+					"behaviorType": "MoveTo",
+					"parameters": {
+						"object": "pointer",
+						"image-point": "0",
+						"mode": "direct"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 591772922728627,
+					"parameters": {
+						"seconds": "6"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "skip",
+					"sid": 700848034761418,
+					"parameters": {
+						"visibility": "visible"
+					}
+				}
+			],
+			"sid": 175794858279498
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-arrived",
+					"objectClass": "cr",
+					"sid": 841853184635778,
+					"behaviorType": "MoveTo"
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 212001117959838,
+					"parameters": {
+						"layout": "home"
+					}
+				}
+			],
+			"sid": 917388611240331
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "key-is-down",
+					"objectClass": "Keyboard",
+					"sid": 687678874654013,
+					"parameters": {
+						"key": 32
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 406665124805828,
+					"parameters": {
+						"layout": "home"
+					}
+				}
+			],
+			"sid": 256067923538332
+		}
+	],
+	"sid": 357346199006426
+}

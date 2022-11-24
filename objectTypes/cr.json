@@ -1,0 +1,15 @@
+{
+	"name": "cr",
+	"plugin-id": "Text",
+	"sid": 466546564714946,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "MoveTo",
+			"name": "MoveTo",
+			"sid": 867095917139203
+		}
+	],
+	"effectTypes": []
+}

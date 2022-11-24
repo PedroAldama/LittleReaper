@@ -1,0 +1,57 @@
+{
+	"name": "mirror",
+	"plugin-id": "Sprite",
+	"sid": 518528310816546,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 96,
+						"height": 96,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 373736,
+						"collisionPoly": {
+							"points": [
+								0.2708333333333333,
+								0.2708333333333333,
+								0.5,
+								0.16666666666666666,
+								0.71875,
+								0.2708333333333333,
+								0.8020833333333334,
+								0.5,
+								0.71875,
+								0.71875,
+								0.5,
+								0.8229166666666666,
+								0.2708333333333333,
+								0.71875,
+								0.1875,
+								0.5
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 390114747532660,
+				"name": "idle",
+				"isLooping": true,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

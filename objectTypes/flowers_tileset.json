@@ -1,0 +1,21 @@
+{
+	"name": "flowers_tileset",
+	"plugin-id": "Tilemap",
+	"sid": 378896451132440,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"image": {
+		"width": 160,
+		"height": 160,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "lossless",
+		"exportQuality": 0.8,
+		"imageSpriteId": 8686490,
+		"useCollisionPoly": true
+	},
+	"tile-collision-polys": {}
+}

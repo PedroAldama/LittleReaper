@@ -1,0 +1,25 @@
+{
+	"name": "letras",
+	"plugin-id": "Sprite",
+	"sid": 620872533806500,
+	"instanceVariables": [
+		{
+			"name": "valor",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 968209811178296
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "MoveTo",
+			"name": "MoveTo",
+			"sid": 389609599833321
+		}
+	],
+	"effectTypes": [],
+	"members": [
+		"letra"
+	]
+}
