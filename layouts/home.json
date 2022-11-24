@@ -15,7 +15,7 @@
 						"enable-collisions": true,
 						"live-preview": false
 					},
-					"uid": 160,
+					"uid": 189,
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
@@ -36,7 +36,7 @@
 					}
 				}
 			],
-			"sid": 867090775739399,
+			"sid": 803527489084443,
 			"effectTypes": [],
 			"isInitiallyVisible": true,
 			"isInitiallyInteractive": true,
@@ -68,8 +68,191 @@
 			"name": "layer",
 			"overriden": 0,
 			"subLayers": [],
-			"instances": [],
-			"sid": 651860234625113,
+			"instances": [
+				{
+					"type": "Jugar",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 190,
+					"instanceVariables": {},
+					"behaviors": {
+						"MoveTo": {
+							"properties": {
+								"max-speed": 6000,
+								"acceleration": 6000,
+								"deceleration": 6000,
+								"rotate-speed": 0,
+								"set-angle": false,
+								"stop-on-solids": false,
+								"enabled": true
+							}
+						}
+					},
+					"world": {
+						"x": 640,
+						"y": 160,
+						"width": 576,
+						"height": 128,
+						"originX": 0.5,
+						"originY": 0.9824561403508771,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Creditos",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 191,
+					"instanceVariables": {},
+					"behaviors": {
+						"MoveTo": {
+							"properties": {
+								"max-speed": 6000,
+								"acceleration": 6000,
+								"deceleration": 6000,
+								"rotate-speed": 0,
+								"set-angle": false,
+								"stop-on-solids": false,
+								"enabled": true
+							}
+						}
+					},
+					"world": {
+						"x": 640,
+						"y": 864,
+						"width": 512,
+						"height": 128,
+						"originX": 0.5,
+						"originY": 0.9824561403508771,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "pointer",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 192,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 640,
+						"y": 384,
+						"width": 96,
+						"height": 96,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "pointer2",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 193,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 640,
+						"y": 576,
+						"width": 96,
+						"height": 96,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "title",
+					"properties": {
+						"text": "Little Reaper",
+						"enable-bbcode": true,
+						"font": "GRUNTREAPER",
+						"size": 68,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0.6196078431372549,
+							0.07058823529411765,
+							0.6313725490196078,
+							1
+						],
+						"horizontal-alignment": "center",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": false,
+						"origin": "top-left"
+					},
+					"uid": 194,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 320,
+						"y": 64,
+						"width": 672,
+						"height": 96,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				}
+			],
+			"sid": 741540515565100,
 			"effectTypes": [],
 			"isInitiallyVisible": true,
 			"isInitiallyInteractive": true,
@@ -98,7 +281,7 @@
 			"global": false
 		}
 	],
-	"sid": 887110284143448,
+	"sid": 232308334893946,
 	"nonworld-instances": [],
 	"effectTypes": [],
 	"width": 2560,
