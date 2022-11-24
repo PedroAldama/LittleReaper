@@ -1,5 +1,111 @@
 {
 	"name": "home",
-	"events": [],
-	"sid": 496503422609163
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 429944472904688
+				}
+			],
+			"actions": [
+				{
+					"id": "move-to-object",
+					"objectClass": "Jugar",
+					"sid": 116979000231577,
+					"behaviorType": "MoveTo",
+					"parameters": {
+						"object": "pointer",
+						"image-point": "0",
+						"mode": "direct"
+					}
+				},
+				{
+					"id": "move-to-object",
+					"objectClass": "Creditos",
+					"sid": 107207015091389,
+					"behaviorType": "MoveTo",
+					"parameters": {
+						"object": "pointer2",
+						"image-point": "0",
+						"mode": "direct"
+					}
+				}
+			],
+			"sid": 422941694970564
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-arrived",
+					"objectClass": "Jugar",
+					"sid": 549456871255247,
+					"behaviorType": "MoveTo"
+				}
+			],
+			"actions": [
+				{
+					"id": "set-visible",
+					"objectClass": "title",
+					"sid": 461846166189421,
+					"parameters": {
+						"visibility": "visible"
+					}
+				}
+			],
+			"sid": 718226773566236
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 110582557536549,
+					"parameters": {
+						"object": "Jugar"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 944053558440721,
+					"parameters": {
+						"layout": "game"
+					}
+				}
+			],
+			"sid": 836569775619588
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 872756341108329,
+					"parameters": {
+						"object": "Creditos"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 730684872200661,
+					"parameters": {
+						"layout": "credits"
+					}
+				}
+			],
+			"sid": 723343420295930
+		}
+	],
+	"sid": 624431830772103
 }
