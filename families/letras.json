@@ -16,6 +16,11 @@
 			"behaviorId": "MoveTo",
 			"name": "MoveTo",
 			"sid": 389609599833321
+		},
+		{
+			"behaviorId": "DragnDrop",
+			"name": "DragDrop",
+			"sid": 903479327255017
 		}
 	],
 	"effectTypes": [],

@@ -433,6 +433,12 @@
 								"stop-on-solids": false,
 								"enabled": true
 							}
+						},
+						"DragDrop": {
+							"properties": {
+								"axes": "both",
+								"enabled": true
+							}
 						}
 					},
 					"world": {

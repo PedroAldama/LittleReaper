@@ -109,11 +109,11 @@
 						{
 							"id": "move-to-position",
 							"objectClass": "player_scythe",
-							"sid": 755425455805698,
+							"sid": 638941879886411,
 							"behaviorType": "MoveTo",
 							"parameters": {
-								"x": "Mouse.X",
-								"y": "Mouse.Y",
+								"x": "Touch.X",
+								"y": "Touch.Y",
 								"mode": "direct"
 							}
 						},
@@ -1474,15 +1474,121 @@
 									"sid": 861675378434832
 								},
 								{
-									"id": "set-collisions-enabled",
+									"id": "set-enabled",
 									"objectClass": "letras",
-									"sid": 297610817113240,
+									"sid": 154532528287258,
+									"behaviorType": "DragDrop",
 									"parameters": {
-										"collisions": "disabled"
+										"state": "enabled"
 									}
 								}
 							],
 							"sid": 268838694004977
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-drop",
+									"objectClass": "letras",
+									"sid": 658107638784758,
+									"behaviorType": "DragDrop"
+								},
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "letras",
+									"sid": 729439351055550,
+									"parameters": {
+										"object": "frases"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 295143842813988,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "letras",
+											"sid": 305133113159858,
+											"parameters": {
+												"instance-variable": "valor",
+												"comparison": 0,
+												"value": "frases.valor"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-default-color",
+											"objectClass": "frases",
+											"sid": 690272758086161,
+											"parameters": {
+												"color": "rgbEx(0, 255, 0)"
+											}
+										},
+										{
+											"id": "set-enabled",
+											"objectClass": "letras",
+											"sid": 245569489100033,
+											"behaviorType": "DragDrop",
+											"parameters": {
+												"state": "disabled"
+											}
+										},
+										{
+											"id": "set-collisions-enabled",
+											"objectClass": "frases",
+											"sid": 495068973106842,
+											"parameters": {
+												"collisions": "disabled"
+											}
+										},
+										{
+											"id": "set-position",
+											"objectClass": "letras",
+											"sid": 768033067410789,
+											"parameters": {
+												"x": "frases.X",
+												"y": "frases.Y"
+											}
+										}
+									],
+									"sid": 387310203010875
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 354023507099045
+										}
+									],
+									"actions": [
+										{
+											"id": "set-default-color",
+											"objectClass": "frases",
+											"sid": 426974239911557,
+											"parameters": {
+												"color": "rgbEx(255, 0, 0)"
+											}
+										},
+										{
+											"id": "set-position",
+											"objectClass": "letras",
+											"sid": 708321471702956,
+											"parameters": {
+												"x": "frases.X",
+												"y": "frases.Y - 64"
+											}
+										}
+									],
+									"sid": 992507971184132
+								}
+							]
 						}
 					],
 					"sid": 796403660187925

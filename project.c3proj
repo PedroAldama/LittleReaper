@@ -141,6 +141,14 @@
 			"author": "Scirra",
 			"version": "r317.2",
 			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "DragnDrop",
+			"name": "Drag & Drop",
+			"author": "Scirra",
+			"version": "r317.2",
+			"bundled": false
 		}
 	],
 	"uniqueId": "se73375khf5",
@@ -195,7 +203,9 @@
 			"NO",
 			"shure",
 			"title",
-			"reset"
+			"reset",
+			"animacionLetra",
+			"fraseCompleta"
 		],
 		"subfolders": []
 	},
@@ -203,7 +213,8 @@
 	"containers": [],
 	"families": {
 		"items": [
-			"letras"
+			"letras",
+			"frases"
 		],
 		"subfolders": []
 	},
