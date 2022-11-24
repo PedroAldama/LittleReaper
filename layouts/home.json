@@ -36,7 +36,8 @@
 					}
 				}
 			],
-			"sid": 803527489084443,
+
+			"sid": 236909515280557,
 			"effectTypes": [],
 			"isInitiallyVisible": true,
 			"isInitiallyInteractive": true,
@@ -252,7 +253,9 @@
 					}
 				}
 			],
-			"sid": 741540515565100,
+
+			"sid": 324390789216476,
+
 			"effectTypes": [],
 			"isInitiallyVisible": true,
 			"isInitiallyInteractive": true,
@@ -281,7 +284,9 @@
 			"global": false
 		}
 	],
-	"sid": 232308334893946,
+
+	"sid": 244251739386191,
+
 	"nonworld-instances": [],
 	"effectTypes": [],
 	"width": 2560,
