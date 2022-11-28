@@ -1708,6 +1708,14 @@
 								"x": "608",
 								"y": "448"
 							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "reset",
+							"sid": 604062203458260,
+							"parameters": {
+								"visibility": "invisible"
+							}
 						}
 					],
 					"sid": 635174840798786
@@ -1963,6 +1971,14 @@
 							"parameters": {
 								"x": "608",
 								"y": "928"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "reset",
+							"sid": 166567729900195,
+							"parameters": {
+								"visibility": "visible"
 							}
 						}
 					],
