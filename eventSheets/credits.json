@@ -21,22 +21,6 @@
 						"image-point": "0",
 						"mode": "direct"
 					}
-				},
-				{
-					"id": "wait",
-					"objectClass": "System",
-					"sid": 591772922728627,
-					"parameters": {
-						"seconds": "6"
-					}
-				},
-				{
-					"id": "set-visible",
-					"objectClass": "skip",
-					"sid": 700848034761418,
-					"parameters": {
-						"visibility": "visible"
-					}
 				}
 			],
 			"sid": 175794858279498
@@ -51,23 +35,59 @@
 					"behaviorType": "MoveTo"
 				}
 			],
-			"actions": [],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 228651405458235,
+					"parameters": {
+						"layout": "home"
+					}
+				}
+			],
 			"sid": 917388611240331
 		},
 		{
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "key-is-down",
-					"objectClass": "Keyboard",
-					"sid": 687678874654013,
+					"id": "on-double-tap",
+					"objectClass": "Touch",
+					"sid": 860408955117928
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 449835063435897,
 					"parameters": {
-						"key": 32
+						"layout": "home"
 					}
 				}
 			],
-			"actions": [],
 			"sid": 256067923538332
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap",
+					"objectClass": "Touch",
+					"sid": 789370236067097
+				}
+			],
+			"actions": [
+				{
+					"id": "set-visible",
+					"objectClass": "skip",
+					"sid": 375615187831404,
+					"parameters": {
+						"visibility": "visible"
+					}
+				}
+			],
+			"sid": 237493603471351
 		}
 	],
 	"sid": 357346199006426
