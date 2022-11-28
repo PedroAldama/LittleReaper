@@ -155,7 +155,7 @@
 				{
 					"type": "skip",
 					"properties": {
-						"text": "Presiona espacio para omitir",
+						"text": "Presiona 2 veces la pantalla\npara omitir",
 						"enable-bbcode": true,
 						"font": "GRUNTREAPER",
 						"size": 12,
@@ -178,10 +178,10 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 1064,
-						"y": 678,
+						"x": 1054.1646312554428,
+						"y": 673.6287180544468,
 						"width": 200,
-						"height": 30,
+						"height": 49.67077917694746,
 						"originX": 0,
 						"originY": 0,
 						"color": [
