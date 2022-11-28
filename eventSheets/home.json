@@ -32,6 +32,24 @@
 						"image-point": "0",
 						"mode": "direct"
 					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "background",
+					"sid": 595830956941659,
+					"parameters": {
+						"instance-variable": "startX",
+						"value": "Self.X"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "background",
+					"sid": 677517208499842,
+					"parameters": {
+						"instance-variable": "startY",
+						"value": "Self.Y"
+					}
 				}
 			],
 			"sid": 422941694970564
@@ -105,6 +123,35 @@
 				}
 			],
 			"sid": 723343420295930
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 112225978767217
+				}
+			],
+			"actions": [
+				{
+					"id": "set-x",
+					"objectClass": "background",
+					"sid": 847442750521076,
+					"parameters": {
+						"x": "Self.startX+ViewportLeft(Self.LayerName)"
+					}
+				},
+				{
+					"id": "set-y",
+					"objectClass": "background",
+					"sid": 556394920437738,
+					"parameters": {
+						"y": "Self.startY+ViewportTop(Self.LayerName)"
+					}
+				}
+			],
+			"sid": 759394677863978
 		}
 	],
 	"sid": 624431830772103
