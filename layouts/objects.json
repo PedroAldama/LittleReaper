@@ -439,6 +439,9 @@
 								"axes": "both",
 								"enabled": true
 							}
+						},
+						"Flash": {
+							"properties": {}
 						}
 					},
 					"world": {

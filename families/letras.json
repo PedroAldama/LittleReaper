@@ -21,6 +21,11 @@
 			"behaviorId": "DragnDrop",
 			"name": "DragDrop",
 			"sid": 903479327255017
+		},
+		{
+			"behaviorId": "Flash",
+			"name": "Flash",
+			"sid": 472705962445986
 		}
 	],
 	"effectTypes": [],

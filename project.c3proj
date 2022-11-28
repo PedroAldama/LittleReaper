@@ -149,6 +149,14 @@
 			"author": "Scirra",
 			"version": "r317.2",
 			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Flash",
+			"name": "Flash",
+			"author": "Scirra",
+			"version": "r317.2",
+			"bundled": false
 		}
 	],
 	"uniqueId": "se73375khf5",

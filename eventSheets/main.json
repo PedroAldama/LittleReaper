@@ -12,6 +12,16 @@
 			"sid": 417422133469839
 		},
 		{
+			"eventType": "variable",
+			"name": "valorFinal",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 412646303690113
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -70,6 +80,10 @@
 						"instance-variable": "startY",
 						"value": "Self.Y"
 					}
+				},
+				{
+					"type": "script",
+					"script": "const newArr = [];\nconst arr = runtime.objects.Array.getFirstInstance();\nfor(let i = 0; i < 6; i++){\n  let randomNum = Math.floor(Math.random() * 6);\n  newArr.indexOf(randomNum) == -1 ? newArr.push(randomNum) : i--;\n}\n\nfor(let i = 0; i < newArr.length; i++){\n\tarr.setAt(newArr[i],i,);\n}\n"
 				}
 			],
 			"sid": 291208218268513
@@ -1453,14 +1467,6 @@
 									"sid": 235348263357186
 								},
 								{
-									"id": "set-animation-frame",
-									"objectClass": "letras",
-									"sid": 750041828175990,
-									"parameters": {
-										"frame-number": "letras.valor"
-									}
-								},
-								{
 									"id": "move-to-layer",
 									"objectClass": "letras",
 									"sid": 712930067475405,
@@ -1480,6 +1486,32 @@
 									"behaviorType": "DragDrop",
 									"parameters": {
 										"state": "enabled"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "letras",
+									"sid": 725408741377407,
+									"parameters": {
+										"instance-variable": "valor",
+										"value": "Array.Back"
+									}
+								},
+								{
+									"id": "set-animation-frame",
+									"objectClass": "letras",
+									"sid": 267738342660872,
+									"parameters": {
+										"frame-number": "letras.valor"
+									}
+								},
+								{
+									"id": "pop",
+									"objectClass": "Array",
+									"sid": 647072270548330,
+									"parameters": {
+										"where": "back",
+										"axis": "x"
 									}
 								}
 							],
@@ -1553,6 +1585,24 @@
 											"parameters": {
 												"x": "frases.X",
 												"y": "frases.Y"
+											}
+										},
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 133787548270767,
+											"parameters": {
+												"variable": "valorFinal",
+												"value": "1"
+											}
+										},
+										{
+											"id": "simulate-control",
+											"objectClass": "player",
+											"sid": 473376658066853,
+											"behaviorType": "Platform",
+											"parameters": {
+												"control": "jump"
 											}
 										}
 									],
@@ -1707,6 +1757,18 @@
 						}
 					],
 					"sid": 799861090262023
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-visible",
+							"objectClass": "Exit",
+							"sid": 622414180106748
+						}
+					],
+					"actions": [],
+					"sid": 910911574145172
 				},
 				{
 					"eventType": "block",
@@ -1902,6 +1964,40 @@
 				}
 			],
 			"sid": 674434960599758
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 520351390542695,
+					"parameters": {
+						"variable": "valorFinal",
+						"comparison": 0,
+						"value": "6"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 434734833680897,
+					"parameters": {
+						"seconds": "2"
+					}
+				},
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 605452314021636,
+					"parameters": {
+						"layout": "credits"
+					}
+				}
+			],
+			"sid": 720594929861383
 		}
 	],
 	"sid": 515443655451562

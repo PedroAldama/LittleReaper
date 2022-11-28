@@ -6185,6 +6185,9 @@
 								"axes": "both",
 								"enabled": false
 							}
+						},
+						"Flash": {
+							"properties": {}
 						}
 					},
 					"world": {
@@ -6234,6 +6237,9 @@
 								"axes": "both",
 								"enabled": false
 							}
+						},
+						"Flash": {
+							"properties": {}
 						}
 					},
 					"world": {
@@ -6283,6 +6289,9 @@
 								"axes": "both",
 								"enabled": false
 							}
+						},
+						"Flash": {
+							"properties": {}
 						}
 					},
 					"world": {
@@ -6332,6 +6341,9 @@
 								"axes": "both",
 								"enabled": false
 							}
+						},
+						"Flash": {
+							"properties": {}
 						}
 					},
 					"world": {
@@ -6381,6 +6393,9 @@
 								"axes": "both",
 								"enabled": false
 							}
+						},
+						"Flash": {
+							"properties": {}
 						}
 					},
 					"world": {
@@ -6430,6 +6445,9 @@
 								"axes": "both",
 								"enabled": false
 							}
+						},
+						"Flash": {
+							"properties": {}
 						}
 					},
 					"world": {
@@ -7952,7 +7970,7 @@
 						"initially-visible": true,
 						"initial-animation": "Animation 1",
 						"initial-frame": 0,
-						"enable-collisions": true,
+						"enable-collisions": false,
 						"live-preview": false
 					},
 					"uid": 183,
