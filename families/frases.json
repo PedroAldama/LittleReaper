@@ -1,0 +1,19 @@
+{
+	"name": "frases",
+	"plugin-id": "Sprite",
+	"sid": 956846918978182,
+	"instanceVariables": [
+		{
+			"name": "valor",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 220015257596060
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"fraseCompleta"
+	]
+}

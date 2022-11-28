@@ -12,6 +12,16 @@
 			"sid": 417422133469839
 		},
 		{
+			"eventType": "variable",
+			"name": "valorFinal",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 412646303690113
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -70,6 +80,10 @@
 						"instance-variable": "startY",
 						"value": "Self.Y"
 					}
+				},
+				{
+					"type": "script",
+					"script": "const newArr = [];\nconst arr = runtime.objects.Array.getFirstInstance();\nfor(let i = 0; i < 6; i++){\n  let randomNum = Math.floor(Math.random() * 6);\n  newArr.indexOf(randomNum) == -1 ? newArr.push(randomNum) : i--;\n}\n\nfor(let i = 0; i < newArr.length; i++){\n\tarr.setAt(newArr[i],i,);\n}\n"
 				}
 			],
 			"sid": 291208218268513
@@ -109,11 +123,11 @@
 						{
 							"id": "move-to-position",
 							"objectClass": "player_scythe",
-							"sid": 755425455805698,
+							"sid": 638941879886411,
 							"behaviorType": "MoveTo",
 							"parameters": {
-								"x": "Mouse.X",
-								"y": "Mouse.Y",
+								"x": "Touch.X",
+								"y": "Touch.Y",
 								"mode": "direct"
 							}
 						},
@@ -1453,14 +1467,6 @@
 									"sid": 235348263357186
 								},
 								{
-									"id": "set-animation-frame",
-									"objectClass": "letras",
-									"sid": 750041828175990,
-									"parameters": {
-										"frame-number": "letras.valor"
-									}
-								},
-								{
 									"id": "move-to-layer",
 									"objectClass": "letras",
 									"sid": 712930067475405,
@@ -1474,15 +1480,165 @@
 									"sid": 861675378434832
 								},
 								{
-									"id": "set-collisions-enabled",
+									"id": "set-enabled",
 									"objectClass": "letras",
-									"sid": 297610817113240,
+									"sid": 154532528287258,
+									"behaviorType": "DragDrop",
 									"parameters": {
-										"collisions": "disabled"
+										"state": "enabled"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "letras",
+									"sid": 725408741377407,
+									"parameters": {
+										"instance-variable": "valor",
+										"value": "Array.Back"
+									}
+								},
+								{
+									"id": "set-animation-frame",
+									"objectClass": "letras",
+									"sid": 267738342660872,
+									"parameters": {
+										"frame-number": "letras.valor"
+									}
+								},
+								{
+									"id": "pop",
+									"objectClass": "Array",
+									"sid": 647072270548330,
+									"parameters": {
+										"where": "back",
+										"axis": "x"
 									}
 								}
 							],
 							"sid": 268838694004977
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-drop",
+									"objectClass": "letras",
+									"sid": 658107638784758,
+									"behaviorType": "DragDrop"
+								},
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "letras",
+									"sid": 729439351055550,
+									"parameters": {
+										"object": "frases"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 295143842813988,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "letras",
+											"sid": 305133113159858,
+											"parameters": {
+												"instance-variable": "valor",
+												"comparison": 0,
+												"value": "frases.valor"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-default-color",
+											"objectClass": "frases",
+											"sid": 690272758086161,
+											"parameters": {
+												"color": "rgbEx(0, 255, 0)"
+											}
+										},
+										{
+											"id": "set-enabled",
+											"objectClass": "letras",
+											"sid": 245569489100033,
+											"behaviorType": "DragDrop",
+											"parameters": {
+												"state": "disabled"
+											}
+										},
+										{
+											"id": "set-collisions-enabled",
+											"objectClass": "frases",
+											"sid": 495068973106842,
+											"parameters": {
+												"collisions": "disabled"
+											}
+										},
+										{
+											"id": "set-position",
+											"objectClass": "letras",
+											"sid": 768033067410789,
+											"parameters": {
+												"x": "frases.X",
+												"y": "frases.Y"
+											}
+										},
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 133787548270767,
+											"parameters": {
+												"variable": "valorFinal",
+												"value": "1"
+											}
+										},
+										{
+											"id": "simulate-control",
+											"objectClass": "player",
+											"sid": 473376658066853,
+											"behaviorType": "Platform",
+											"parameters": {
+												"control": "jump"
+											}
+										}
+									],
+									"sid": 387310203010875
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 354023507099045
+										}
+									],
+									"actions": [
+										{
+											"id": "set-default-color",
+											"objectClass": "frases",
+											"sid": 426974239911557,
+											"parameters": {
+												"color": "rgbEx(255, 0, 0)"
+											}
+										},
+										{
+											"id": "set-position",
+											"objectClass": "letras",
+											"sid": 708321471702956,
+											"parameters": {
+												"x": "frases.X",
+												"y": "frases.Y - 64"
+											}
+										}
+									],
+									"sid": 992507971184132
+								}
+							]
 						}
 					],
 					"sid": 796403660187925
@@ -1533,6 +1689,24 @@
 							"parameters": {
 								"layer": "\"Pause Menu\"",
 								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "continue",
+							"sid": 726081888235783,
+							"parameters": {
+								"x": "608",
+								"y": "320"
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "Exit",
+							"sid": 985987021765323,
+							"parameters": {
+								"x": "608",
+								"y": "448"
 							}
 						}
 					],
@@ -1598,9 +1772,39 @@
 							"parameters": {
 								"visibility": "visible"
 							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "YES",
+							"sid": 973705722746464,
+							"parameters": {
+								"x": "448 ",
+								"y": "512"
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "NO",
+							"sid": 431122578089627,
+							"parameters": {
+								"x": "768",
+								"y": "512"
+							}
 						}
 					],
 					"sid": 799861090262023
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-visible",
+							"objectClass": "Exit",
+							"sid": 622414180106748
+						}
+					],
+					"actions": [],
+					"sid": 910911574145172
 				},
 				{
 					"eventType": "block",
@@ -1661,6 +1865,24 @@
 							"sid": 404991810835486,
 							"parameters": {
 								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "YES",
+							"sid": 610643649528386,
+							"parameters": {
+								"x": "320",
+								"y": "800"
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "NO",
+							"sid": 368666542496687,
+							"parameters": {
+								"x": "960",
+								"y": "800"
 							}
 						}
 					],
@@ -1723,6 +1945,24 @@
 							"sid": 602477793597110,
 							"parameters": {
 								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "continue",
+							"sid": 572042630913553,
+							"parameters": {
+								"x": "608",
+								"y": "832"
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "Exit",
+							"sid": 919629930632204,
+							"parameters": {
+								"x": "608",
+								"y": "928"
 							}
 						}
 					],
@@ -1796,6 +2036,40 @@
 				}
 			],
 			"sid": 674434960599758
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 520351390542695,
+					"parameters": {
+						"variable": "valorFinal",
+						"comparison": 0,
+						"value": "6"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 434734833680897,
+					"parameters": {
+						"seconds": "2"
+					}
+				},
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 605452314021636,
+					"parameters": {
+						"layout": "credits"
+					}
+				}
+			],
+			"sid": 720594929861383
 		}
 	],
 	"sid": 515443655451562

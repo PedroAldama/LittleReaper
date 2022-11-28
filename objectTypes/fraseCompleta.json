@@ -1,0 +1,37 @@
+{
+	"name": "fraseCompleta",
+	"plugin-id": "Sprite",
+	"sid": 340037550300254,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 192,
+						"height": 183,
+						"originX": 0.46875,
+						"originY": 0.4972677595628415,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 484572,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 465903210474889,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}
