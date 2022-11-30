@@ -213,7 +213,9 @@
 			"title",
 			"reset",
 			"animacionLetra",
-			"fraseCompleta"
+			"fraseCompleta",
+			"jefe",
+			"tiempo"
 		],
 		"subfolders": []
 	},
