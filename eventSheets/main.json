@@ -82,11 +82,57 @@
 					}
 				},
 				{
+					"id": "set-size",
+					"objectClass": "Array",
+					"sid": 143076207690697,
+					"parameters": {
+						"width": "6",
+						"height": "1",
+						"depth": "1"
+					}
+				},
+				{
 					"type": "script",
-					"script": "const newArr = [];\nconst arr = runtime.objects.Array.getFirstInstance();\nfor(let i = 0; i < 6; i++){\n  let randomNum = Math.floor(Math.random() * 6);\n  newArr.indexOf(randomNum) == -1 ? newArr.push(randomNum) : i--;\n}\n\nfor(let i = 0; i < newArr.length; i++){\n\tarr.setAt(newArr[i],i,);\n}\n"
+					"script": "const newArr = [];\nconst arr = runtime.objects.Array.getFirstInstance();\nfor(let i = 0; i < 6; i++){\n  let randomNum = Math.floor(Math.random() * 6);\n  newArr.indexOf(randomNum) == -1 ? newArr.push(randomNum) : i--;\n}\n\nfor(let i = 0; i < newArr.length; i++){\n\tarr.setAt(newArr[i],i,);\n}\nconsole.log(arr.getAt(5))"
+				},
+				{
+					"id": "reset-global-variables",
+					"objectClass": "System",
+					"sid": 929063041618569
+				},
+				{
+					"type": "script",
+					"script": "console.log(\"RESTART\")"
 				}
 			],
-			"sid": 291208218268513
+			"sid": 291208218268513,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 299760606327700,
+							"parameters": {
+								"object": "letras"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "letras",
+							"sid": 399564278975175,
+							"parameters": {
+								"x": "int(random(4500))",
+								"y": "608"
+							}
+						}
+					],
+					"sid": 469944233182923
+				}
+			]
 		},
 		{
 			"eventType": "group",
@@ -1401,6 +1447,14 @@
 							],
 							"actions": [
 								{
+									"id": "set-visible",
+									"objectClass": "letras",
+									"sid": 685134098562037,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
 									"id": "move-to-object",
 									"objectClass": "letras",
 									"sid": 176704274949329,
@@ -1409,6 +1463,31 @@
 										"object": "frase",
 										"image-point": "0",
 										"mode": "direct"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "tiempo",
+									"sid": 565597893128700,
+									"parameters": {
+										"instance-variable": "actual",
+										"value": "tiempo.actual + 2"
+									}
+								},
+								{
+									"id": "set-opacity",
+									"objectClass": "jefe",
+									"sid": 115443715132941,
+									"parameters": {
+										"opacity": "jefe.Opacity - 2"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "tiempo",
+									"sid": 196512989223206,
+									"parameters": {
+										"text": "tiempo.actual"
 									}
 								}
 							],
@@ -1554,6 +1633,15 @@
 									],
 									"actions": [
 										{
+											"id": "simulate-control",
+											"objectClass": "player",
+											"sid": 726532765884935,
+											"behaviorType": "Platform",
+											"parameters": {
+												"control": "jump"
+											}
+										},
+										{
 											"id": "set-default-color",
 											"objectClass": "frases",
 											"sid": 690272758086161,
@@ -1597,12 +1685,28 @@
 											}
 										},
 										{
-											"id": "simulate-control",
-											"objectClass": "player",
-											"sid": 473376658066853,
-											"behaviorType": "Platform",
+											"id": "set-instvar-value",
+											"objectClass": "tiempo",
+											"sid": 641257579479297,
 											"parameters": {
-												"control": "jump"
+												"instance-variable": "actual",
+												"value": "tiempo.actual + 10"
+											}
+										},
+										{
+											"id": "set-opacity",
+											"objectClass": "jefe",
+											"sid": 279255784224775,
+											"parameters": {
+												"opacity": "jefe.Opacity - 10"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "tiempo",
+											"sid": 323109000517201,
+											"parameters": {
+												"text": "tiempo.actual"
 											}
 										}
 									],
@@ -2070,6 +2174,70 @@
 				}
 			],
 			"sid": 720594929861383
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-x-seconds",
+					"objectClass": "System",
+					"sid": 715893631806536,
+					"parameters": {
+						"interval-seconds": "1.0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-opacity",
+					"objectClass": "jefe",
+					"sid": 607551926552052,
+					"parameters": {
+						"opacity": "jefe.Opacity + 2"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "tiempo",
+					"sid": 924739598206557,
+					"parameters": {
+						"instance-variable": "actual",
+						"value": "tiempo.actual - 2"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "tiempo",
+					"sid": 891541738064991,
+					"parameters": {
+						"text": "tiempo.actual"
+					}
+				}
+			],
+			"sid": 695475594564466
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "tiempo",
+					"sid": 427587434610721,
+					"parameters": {
+						"instance-variable": "actual",
+						"comparison": 0,
+						"value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "player",
+					"sid": 105120184366029
+				}
+			],
+			"sid": 158764893367127
 		}
 	],
 	"sid": 515443655451562

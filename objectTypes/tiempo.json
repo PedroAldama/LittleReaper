@@ -1,0 +1,17 @@
+{
+	"name": "tiempo",
+	"plugin-id": "Text",
+	"sid": 760218691476970,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "actual",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 542398834692832
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": []
+}
