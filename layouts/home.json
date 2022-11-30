@@ -16,7 +16,10 @@
 						"live-preview": false
 					},
 					"uid": 189,
-					"instanceVariables": {},
+					"instanceVariables": {
+						"startX": 0,
+						"startY": 0
+					},
 					"behaviors": {},
 					"world": {
 						"x": 0,
@@ -269,8 +272,8 @@
 				1
 			],
 			"isTransparent": true,
-			"parallaxX": 1,
-			"parallaxY": 1,
+			"parallaxX": 0,
+			"parallaxY": 0,
 			"scaleRate": 1,
 			"forceOwnTexture": false,
 			"renderingMode": "3d",
