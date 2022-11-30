@@ -22,6 +22,26 @@
 			"sid": 412646303690113
 		},
 		{
+			"eventType": "variable",
+			"name": "palabraActual",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 347870198486876
+		},
+		{
+			"eventType": "variable",
+			"name": "valorPalabraActual",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 197093273510324
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -82,57 +102,16 @@
 					}
 				},
 				{
-					"id": "set-size",
-					"objectClass": "Array",
-					"sid": 143076207690697,
+					"id": "request-project-file",
+					"objectClass": "AJAX",
+					"sid": 836889079099138,
 					"parameters": {
-						"width": "6",
-						"height": "1",
-						"depth": "1"
+						"tag": "\"check\"",
+						"file": "Palabras.json"
 					}
-				},
-				{
-					"type": "script",
-					"script": "const newArr = [];\nconst arr = runtime.objects.Array.getFirstInstance();\nfor(let i = 0; i < 6; i++){\n  let randomNum = Math.floor(Math.random() * 6);\n  newArr.indexOf(randomNum) == -1 ? newArr.push(randomNum) : i--;\n}\n\nfor(let i = 0; i < newArr.length; i++){\n\tarr.setAt(newArr[i],i,);\n}\nconsole.log(arr.getAt(5))"
-				},
-				{
-					"id": "reset-global-variables",
-					"objectClass": "System",
-					"sid": 929063041618569
-				},
-				{
-					"type": "script",
-					"script": "console.log(\"RESTART\")"
 				}
 			],
-			"sid": 291208218268513,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "for-each",
-							"objectClass": "System",
-							"sid": 299760606327700,
-							"parameters": {
-								"object": "letras"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "set-position",
-							"objectClass": "letras",
-							"sid": 399564278975175,
-							"parameters": {
-								"x": "int(random(4500))",
-								"y": "608"
-							}
-						}
-					],
-					"sid": 469944233182923
-				}
-			]
+			"sid": 291208218268513
 		},
 		{
 			"eventType": "group",
@@ -1568,29 +1547,11 @@
 									}
 								},
 								{
-									"id": "set-instvar-value",
-									"objectClass": "letras",
-									"sid": 725408741377407,
-									"parameters": {
-										"instance-variable": "valor",
-										"value": "Array.Back"
-									}
-								},
-								{
 									"id": "set-animation-frame",
 									"objectClass": "letras",
 									"sid": 267738342660872,
 									"parameters": {
 										"frame-number": "letras.valor"
-									}
-								},
-								{
-									"id": "pop",
-									"objectClass": "Array",
-									"sid": 647072270548330,
-									"parameters": {
-										"where": "back",
-										"axis": "x"
 									}
 								}
 							],
@@ -1676,9 +1637,9 @@
 											}
 										},
 										{
-											"id": "add-to-eventvar",
+											"id": "subtract-from-eventvar",
 											"objectClass": "System",
-											"sid": 133787548270767,
+											"sid": 864200374945799,
 											"parameters": {
 												"variable": "valorFinal",
 												"value": "1"
@@ -2163,30 +2124,37 @@
 				{
 					"id": "compare-eventvar",
 					"objectClass": "System",
-					"sid": 520351390542695,
+					"sid": 806415379667062,
 					"parameters": {
 						"variable": "valorFinal",
 						"comparison": 0,
-						"value": "6"
+						"value": "0"
 					}
 				}
 			],
 			"actions": [
 				{
-					"id": "wait",
+					"id": "add-to-eventvar",
 					"objectClass": "System",
-					"sid": 434734833680897,
+					"sid": 717607194283013,
 					"parameters": {
-						"seconds": "2"
+						"variable": "palabraActual",
+						"value": "1"
 					}
 				},
 				{
-					"id": "go-to-layout",
-					"objectClass": "System",
-					"sid": 605452314021636,
+					"id": "request-project-file",
+					"objectClass": "AJAX",
+					"sid": 285412188733139,
 					"parameters": {
-						"layout": "credits"
+						"tag": "\"check\"",
+						"file": "Palabras.json"
 					}
+				},
+				{
+					"id": "restart-layout",
+					"objectClass": "System",
+					"sid": 160761401896476
 				}
 			],
 			"sid": 720594929861383
@@ -2236,24 +2204,151 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "compare-instance-variable",
-					"objectClass": "tiempo",
-					"sid": 427587434610721,
+					"id": "on-completed",
+					"objectClass": "AJAX",
+					"sid": 193827630657152,
 					"parameters": {
-						"instance-variable": "actual",
-						"comparison": 0,
-						"value": "0"
+						"tag": "\"check\""
 					}
 				}
 			],
 			"actions": [
 				{
-					"id": "destroy",
-					"objectClass": "player",
-					"sid": 105120184366029
+					"id": "load",
+					"objectClass": "arrayPalabras",
+					"sid": 966870412705437,
+					"parameters": {
+						"json": "AJAX.LastData"
+					}
+				},
+				{
+					"type": "script",
+					"script": "const abc = \"abcdefghijklmnopqrstuvwxyz\";\nlet numeroActual = runtime.globalVars.palabraActual;\nconst arrPal = runtime.objects.arrayPalabras.getFirstInstance();\nconst arr = runtime.objects.palabraActual.getFirstInstance();\n  let palabra = arrPal.getAt(numeroActual);\n  arr.setSize(palabra.length,1,1);\n  runtime.globalVars.valorPalabraActual = palabra.length;\n  runtime.globalVars.valorFinal = palabra.length;\n  for(let i = 0; i < palabra.length; i++){\n  \tarr.setAt(abc.indexOf(palabra[i]),i,);\n  }"
+				},
+				{
+					"callFunction": "colocarLetras",
+					"sid": 632514116887898
 				}
 			],
-			"sid": 158764893367127
+			"sid": 347737358310249
+		},
+		{
+			"functionName": "colocarLetras",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 278281097084958,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for",
+							"objectClass": "System",
+							"sid": 220754646384424,
+							"parameters": {
+								"name": "\"numeroLetra\"",
+								"start-index": "valorPalabraActual - 1",
+								"end-index": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "spawn-another-object",
+							"objectClass": "generarLetra",
+							"sid": 269858190635412,
+							"parameters": {
+								"object": "letras",
+								"layer": "\"tiles\"",
+								"image-point": "0",
+								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "set-size",
+							"objectClass": "letras",
+							"sid": 201790519774724,
+							"parameters": {
+								"width": "32",
+								"height": "32"
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "letras",
+							"sid": 812984785017010,
+							"parameters": {
+								"x": "int(random(4500))",
+								"y": "608"
+							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "letras",
+							"sid": 866726362525183,
+							"behaviorType": "DragDrop",
+							"parameters": {
+								"state": "disabled"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "letras",
+							"sid": 320889254570588,
+							"parameters": {
+								"instance-variable": "valor",
+								"value": "palabraActual.Back"
+							}
+						},
+						{
+							"id": "spawn-another-object",
+							"objectClass": "generarEspacios",
+							"sid": 494357879782887,
+							"parameters": {
+								"object": "frases",
+								"layer": "\"letras\"",
+								"image-point": "0",
+								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "frases",
+							"sid": 484142237602630,
+							"parameters": {
+								"instance-variable": "valor",
+								"value": " palabraActual.Back"
+							}
+						},
+						{
+							"id": "pop",
+							"objectClass": "palabraActual",
+							"sid": 450731717544730,
+							"parameters": {
+								"where": "back",
+								"axis": "x"
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "generarEspacios",
+							"sid": 139673553897495,
+							"parameters": {
+								"x": "generarEspacios.X - 70",
+								"y": "generarEspacios.Y"
+							}
+						}
+					],
+					"sid": 298098590297639
+				}
+			]
 		}
 	],
 	"sid": 515443655451562

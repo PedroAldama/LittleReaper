@@ -425,11 +425,11 @@
 					"behaviors": {
 						"MoveTo": {
 							"properties": {
-								"max-speed": 200,
+								"max-speed": 600,
 								"acceleration": 600,
 								"deceleration": 600,
 								"rotate-speed": 0,
-								"set-angle": true,
+								"set-angle": false,
 								"stop-on-solids": false,
 								"enabled": true
 							}
@@ -449,7 +449,7 @@
 						"y": 160,
 						"width": 32,
 						"height": 32,
-						"originX": 0.5,
+						"originX": 0.5089285714285714,
 						"originY": 0.5,
 						"color": [
 							1,
@@ -587,6 +587,37 @@
 						"height": 96,
 						"originX": 0.5,
 						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "fraseCompleta",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 159,
+					"instanceVariables": {
+						"valor": 0
+					},
+					"behaviors": {},
+					"world": {
+						"x": 576,
+						"y": 160,
+						"width": 64,
+						"height": 64,
+						"originX": 0.46875,
+						"originY": 0.4972677595628415,
 						"color": [
 							1,
 							1,

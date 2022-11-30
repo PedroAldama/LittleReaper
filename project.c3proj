@@ -79,6 +79,14 @@
 			"bundled": false
 		},
 		{
+			"type": "plugin",
+			"id": "AJAX",
+			"name": "AJAX",
+			"author": "Scirra",
+			"version": "r317.2",
+			"bundled": false
+		},
+		{
 			"type": "behavior",
 			"id": "solid",
 			"name": "Solid",
@@ -194,7 +202,7 @@
 			"pointer2",
 			"letra",
 			"generarLetra",
-			"Array",
+			"palabraActual",
 			"frase",
 			"mirror_mirror",
 			"mirror_mirror_sleep",
@@ -215,7 +223,11 @@
 			"animacionLetra",
 			"fraseCompleta",
 			"jefe",
-			"tiempo"
+			"tiempo",
+			"AJAX",
+			"arrayPalabras",
+			"creadorLetras",
+			"generarEspacios"
 		],
 		"subfolders": []
 	},
@@ -337,7 +349,16 @@
 			"subfolders": []
 		},
 		"general": {
-			"items": [],
+			"items": [
+				{
+					"name": "Palabras.json",
+					"type": "application/json",
+					"sid": 782030156802233,
+					"file-info": {
+						"purpose": "none"
+					}
+				}
+			],
 			"subfolders": []
 		}
 	},
