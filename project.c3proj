@@ -227,7 +227,8 @@
 			"AJAX",
 			"arrayPalabras",
 			"creadorLetras",
-			"generarEspacios"
+			"generarEspacios",
+			"palabrasCompletadas"
 		],
 		"subfolders": []
 	},
@@ -245,7 +246,8 @@
 			"game",
 			"objects",
 			"credits",
-			"home"
+			"home",
+			"finish"
 		],
 		"subfolders": []
 	},
@@ -253,7 +255,8 @@
 		"items": [
 			"main",
 			"credits",
-			"home"
+			"home",
+			"finish"
 		],
 		"subfolders": []
 	},

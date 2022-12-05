@@ -2113,7 +2113,7 @@
 				{
 					"id": "restart-layout",
 					"objectClass": "System",
-					"sid": 855343662563857
+					"sid": 848656143439261
 				}
 			],
 			"sid": 674434960599758
@@ -2134,30 +2134,91 @@
 			],
 			"actions": [
 				{
-					"id": "add-to-eventvar",
-					"objectClass": "System",
-					"sid": 717607194283013,
+					"id": "push",
+					"objectClass": "palabrasCompletadas",
+					"sid": 527672190184707,
 					"parameters": {
-						"variable": "palabraActual",
-						"value": "1"
+						"where": "back",
+						"value": "arrayPalabras.At(palabraActual)",
+						"axis": "x"
 					}
-				},
-				{
-					"id": "request-project-file",
-					"objectClass": "AJAX",
-					"sid": 285412188733139,
-					"parameters": {
-						"tag": "\"check\"",
-						"file": "Palabras.json"
-					}
-				},
-				{
-					"id": "restart-layout",
-					"objectClass": "System",
-					"sid": 160761401896476
 				}
 			],
-			"sid": 720594929861383
+			"sid": 720594929861383,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 977138831890830,
+							"parameters": {
+								"first-value": "palabraActual",
+								"comparison": 0,
+								"second-value": "arrayPalabras.Width"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 751057296950334,
+							"parameters": {
+								"layout": "finish"
+							}
+						}
+					],
+					"sid": 921500846682989
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 514510441059457
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 141283731072069,
+							"parameters": {
+								"variable": "palabraActual",
+								"value": "1"
+							}
+						},
+						{
+							"id": "request-project-file",
+							"objectClass": "AJAX",
+							"sid": 783088506416337,
+							"parameters": {
+								"tag": "\"check\"",
+								"file": "Palabras.json"
+							}
+						},
+						{
+							"id": "restart-layout",
+							"objectClass": "System",
+							"sid": 204317239705541
+						},
+						{
+							"id": "set-at-xy",
+							"objectClass": "arrayPalabras",
+							"sid": 454735464344153,
+							"parameters": {
+								"x": "palabraActual",
+								"y": "0",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 320767883388394
+				}
+			]
 		},
 		{
 			"eventType": "block",
@@ -2223,7 +2284,7 @@
 				},
 				{
 					"type": "script",
-					"script": "const abc = \"abcdefghijklmnopqrstuvwxyz\";\nlet numeroActual = runtime.globalVars.palabraActual;\nconst arrPal = runtime.objects.arrayPalabras.getFirstInstance();\nconst arr = runtime.objects.palabraActual.getFirstInstance();\n  let palabra = arrPal.getAt(numeroActual);\n  arr.setSize(palabra.length,1,1);\n  runtime.globalVars.valorPalabraActual = palabra.length;\n  runtime.globalVars.valorFinal = palabra.length;\n  for(let i = 0; i < palabra.length; i++){\n  \tarr.setAt(abc.indexOf(palabra[i]),i,);\n  }"
+					"script": "const abc = \"abcdefghijklmnopqrstuvwxyz\";\nlet numeroActual = runtime.globalVars.palabraActual;\nvar arrPal = runtime.objects.arrayPalabras.getFirstInstance();\nconst arr = runtime.objects.palabraActual.getFirstInstance();\n  let palabra = arrPal.getAt(numeroActual);\n  arr.setSize(palabra.length,1,1);\n  runtime.globalVars.valorPalabraActual = palabra.length;\n  runtime.globalVars.valorFinal = palabra.length;\n  for(let i=0; i<palabra.length; i++){\n  \tarr.setAt(abc.indexOf(palabra[i]),i,);\n  }"
 				},
 				{
 					"callFunction": "colocarLetras",

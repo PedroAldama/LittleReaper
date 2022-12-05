@@ -9,6 +9,13 @@
 			"desc": "",
 			"show": true,
 			"sid": 220015257596060
+		},
+		{
+			"name": "final",
+			"type": "boolean",
+			"desc": "",
+			"show": true,
+			"sid": 233915056476886
 		}
 	],
 	"behaviorTypes": [],

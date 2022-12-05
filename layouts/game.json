@@ -7112,35 +7112,6 @@
 					}
 				},
 				{
-					"type": "mirror_mirror_sleep",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 174,
-					"instanceVariables": {},
-					"behaviors": {},
-					"world": {
-						"x": 32,
-						"y": 288,
-						"width": 96,
-						"height": 96,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
 					"type": "frase",
 					"properties": {
 						"initially-visible": false,
@@ -7586,10 +7557,20 @@
 			"type": "arrayPalabras",
 			"properties": {
 				"width": 10,
-				"height": 1,
+				"height": 2,
 				"depth": 1
 			},
 			"uid": 127,
+			"instanceVariables": {}
+		},
+		{
+			"type": "palabrasCompletadas",
+			"properties": {
+				"width": 0,
+				"height": 1,
+				"depth": 1
+			},
+			"uid": 209,
 			"instanceVariables": {}
 		}
 	],

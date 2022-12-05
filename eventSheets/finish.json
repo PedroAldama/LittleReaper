@@ -1,0 +1,510 @@
+{
+	"name": "finish",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "contador",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 139511455738373
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 160855098712414
+				}
+			],
+			"actions": [],
+			"sid": 366173501249214,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for",
+							"objectClass": "System",
+							"sid": 241677271528735,
+							"parameters": {
+								"name": "\"palabraActualIterada\"",
+								"start-index": "0",
+								"end-index": "palabrasCompletadas.Width - 1"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 610171726380046,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "palabraIterada",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 757687321934104
+						},
+						{
+							"eventType": "variable",
+							"name": "valorLetraIterada",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 123278935031242
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 936230381355060,
+									"parameters": {
+										"variable": "palabraIterada",
+										"value": "palabrasCompletadas.At(loopindex)"
+									}
+								}
+							],
+							"sid": 270063008577410
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for",
+									"objectClass": "System",
+									"sid": 690175709630476,
+									"parameters": {
+										"name": "\"letraActual\"",
+										"start-index": "0",
+										"end-index": "4"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 143375424226628,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 793331653014835,
+											"parameters": {
+												"variable": "valorLetraIterada",
+												"value": "loopindex"
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "creadorLetras",
+											"sid": 787762141117269,
+											"parameters": {
+												"object": "letras",
+												"layer": "0",
+												"image-point": "0",
+												"create-hierarchy": false
+											}
+										},
+										{
+											"id": "set-size",
+											"objectClass": "letras",
+											"sid": 675483452845474,
+											"parameters": {
+												"width": "32",
+												"height": "32"
+											}
+										},
+										{
+											"id": "set-enabled",
+											"objectClass": "letras",
+											"sid": 699628206291568,
+											"behaviorType": "DragDrop",
+											"parameters": {
+												"state": "enabled"
+											}
+										},
+										{
+											"id": "set-position",
+											"objectClass": "creadorLetras",
+											"sid": 559811643871998,
+											"parameters": {
+												"x": "creadorLetras.X + 33",
+												"y": "creadorLetras.Y"
+											}
+										},
+										{
+											"type": "script",
+											"script": "const abc = \"abcdefghijklmnopqrstuvwxyz\";\nlet valor =  localVars.palabraIterada[localVars.valorLetraIterada];\nlocalVars.valorLetraIterada = abc.indexOf(valor);"
+										},
+										{
+											"id": "stop-animation",
+											"objectClass": "letras",
+											"sid": 173194160646864
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "letras",
+											"sid": 722579729014600,
+											"parameters": {
+												"instance-variable": "valor",
+												"value": "valorLetraIterada"
+											}
+										},
+										{
+											"id": "set-animation-frame",
+											"objectClass": "letras",
+											"sid": 472842753519172,
+											"parameters": {
+												"frame-number": "letras.valor"
+											}
+										}
+									],
+									"sid": 900107820289130
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-position",
+									"objectClass": "creadorLetras",
+									"sid": 471656438014639,
+									"parameters": {
+										"x": "creadorLetras.X + 66",
+										"y": "creadorLetras.Y"
+									}
+								}
+							],
+							"sid": 329377687721295
+						}
+					]
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-drop",
+					"objectClass": "letras",
+					"sid": 813492404835886,
+					"behaviorType": "DragDrop"
+				},
+				{
+					"id": "is-overlapping-another-object",
+					"objectClass": "letras",
+					"sid": 497870622729054,
+					"parameters": {
+						"object": "frases"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 613155386888705,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "letras",
+							"sid": 957484120250637,
+							"parameters": {
+								"instance-variable": "valor",
+								"comparison": 0,
+								"value": "frases.valor"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-default-color",
+							"objectClass": "frases",
+							"sid": 992202178299605,
+							"parameters": {
+								"color": "rgbEx(0, 255, 0)"
+							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "letras",
+							"sid": 642836041221621,
+							"behaviorType": "DragDrop",
+							"parameters": {
+								"state": "disabled"
+							}
+						},
+						{
+							"id": "set-collisions-enabled",
+							"objectClass": "frases",
+							"sid": 921726326458591,
+							"parameters": {
+								"collisions": "disabled"
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "letras",
+							"sid": 888324703712768,
+							"parameters": {
+								"x": "frases.X",
+								"y": "frases.Y"
+							}
+						},
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 991986964079449,
+							"parameters": {
+								"variable": "contador",
+								"value": "1"
+							}
+						},
+						{
+							"id": "set-height",
+							"objectClass": "letras",
+							"sid": 682614341285088,
+							"parameters": {
+								"height": "64"
+							}
+						},
+						{
+							"id": "set-width",
+							"objectClass": "letras",
+							"sid": 687614054681542,
+							"parameters": {
+								"width": "64"
+							}
+						}
+					],
+					"sid": 322324659620177,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "frases",
+									"sid": 397610806160615,
+									"parameters": {
+										"instance-variable": "final"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "letras",
+									"sid": 738268387115999,
+									"parameters": {
+										"instance-variable": "final",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 369774552617636
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 120421988981438
+						}
+					],
+					"actions": [
+						{
+							"id": "set-default-color",
+							"objectClass": "frases",
+							"sid": 171088104206961,
+							"parameters": {
+								"color": "rgbEx(255, 0, 0)"
+							}
+						}
+					],
+					"sid": 785632552009266
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 864985210378832,
+					"parameters": {
+						"variable": "contador",
+						"comparison": 5,
+						"value": "25"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-enabled",
+					"objectClass": "letra",
+					"sid": 568016856517717,
+					"behaviorType": "DragDrop",
+					"parameters": {
+						"state": "enabled"
+					}
+				},
+				{
+					"id": "set-animation-frame",
+					"objectClass": "letra",
+					"sid": 407612757207779,
+					"parameters": {
+						"frame-number": "letra.valor"
+					}
+				}
+			],
+			"sid": 971354468041926
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 590084735996714,
+					"parameters": {
+						"variable": "contador",
+						"comparison": 0,
+						"value": "30"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 291678734533815,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "frases",
+							"sid": 567500821422855,
+							"parameters": {
+								"instance-variable": "final"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "frases",
+							"sid": 314459506021369,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 765253446482762
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "letras",
+							"sid": 343962763992768,
+							"parameters": {
+								"instance-variable": "final"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "letras",
+							"sid": 179687290355644,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 287556999598821
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 679420912689561,
+							"parameters": {
+								"seconds": "2"
+							}
+						},
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 648260267510512,
+							"parameters": {
+								"layout": "credits"
+							}
+						}
+					],
+					"sid": 851729412198944
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-overlapping-at-offset",
+					"objectClass": "frases",
+					"sid": 500829941371036,
+					"parameters": {
+						"object": "frases",
+						"offset-x": "0",
+						"offset-y": "0"
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "set-default-color",
+					"objectClass": "frases",
+					"sid": 617091914862325,
+					"parameters": {
+						"color": "rgbEx(255, 255, 255)"
+					}
+				},
+				{
+					"id": "set-collisions-enabled",
+					"objectClass": "frases",
+					"sid": 153684709541232,
+					"parameters": {
+						"collisions": "enabled"
+					}
+				}
+			],
+			"sid": 348169639661536
+		}
+	],
+	"sid": 222234342131534
+}

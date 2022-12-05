@@ -420,7 +420,8 @@
 					},
 					"uid": 161,
 					"instanceVariables": {
-						"valor": 0
+						"valor": 0,
+						"final": false
 					},
 					"behaviors": {
 						"MoveTo": {
@@ -608,7 +609,8 @@
 					},
 					"uid": 159,
 					"instanceVariables": {
-						"valor": 0
+						"valor": 0,
+						"final": false
 					},
 					"behaviors": {},
 					"world": {
